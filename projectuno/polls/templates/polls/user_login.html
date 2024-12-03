@@ -1,0 +1,42 @@
+{% extends "polls/base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    <div style="max-width: 400px; margin: 0 auto; padding: 20px;">
+        <h2>Login to Vote</h2>
+        
+        {% if form.errors %}
+            <div style="padding: 15px; margin-bottom: 20px; background-color: #fee; border-radius: 4px; color: #c00;">
+                <p style="margin: 0 0 10px 0;">Your username and password didn't match. Please try again.</p>
+                <p style="margin: 0; font-size: 0.9em;">
+                    Not registered yet? <a href="{% url 'polls:register' %}" style="color: #c00; text-decoration: underline;">Create an account here</a>
+                </p>
+            </div>
+        {% endif %}
+
+        <form method="post" action="{% url 'polls:user_login' %}">
+            {% csrf_token %}
+            <div style="margin-bottom: 15px;">
+                <label for="id_username" style="display: block; margin-bottom: 5px;">Username:</label>
+                <input type="text" name="username" id="id_username" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label for="id_password" style="display: block; margin-bottom: 5px;">Password:</label>
+                <input type="password" name="password" id="id_password" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+            </div>
+            <input type="hidden" name="next" value="{{ next }}">
+            <div style="margin-top: 20px;">
+                <button type="submit" style="background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;">Login</button>
+            </div>
+        </form>
+        
+        <div style="margin-top: 20px;">
+            New user? <a href="{% url 'polls:register' %}">Register here</a>
+        </div>
+        
+        <div style="margin-top: 10px;">
+            <a href="{% url 'admin:login' %}">Admin Login</a>
+        </div>
+    </div>
+{% endblock %}

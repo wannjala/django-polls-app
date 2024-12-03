@@ -1,0 +1,58 @@
+{% extends "polls/base.html" %}
+
+{% block title %}Latest Questions{% endblock %}
+
+{% block content %}
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h1>Latest Questions</h1>
+        <div>
+            {% if user.is_authenticated %}
+                <form method="post" action="{% url 'logout' %}" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" style="background: none; border: none; color: blue; text-decoration: underline; cursor: pointer;">Logout</button>
+                </form>
+            {% else %}
+                <div>
+                    <a href="{% url 'polls:user_login' %}" style="margin-right: 15px;">Login to Vote</a>
+                    <a href="{% url 'admin:login' %}">Admin Login</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    {% if user.is_authenticated %}
+        {% if unvoted_questions %}
+            <div style="margin-top: 20px; padding: 15px; background-color: #e3f2fd; border-radius: 5px;">
+                <h2 style="margin-top: 0;">Questions You Haven't Voted On:</h2>
+                <ul>
+                {% for question in unvoted_questions %}
+                    <li style="margin: 10px 0;">
+                        <a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a>
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    {% endif %}
+
+    <div style="margin-top: 20px;">
+        <h2>All Questions:</h2>
+        {% if latest_question_list %}
+            <ul>
+            {% for question in latest_question_list %}
+                <li style="margin: 10px 0;">
+                    <a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No questions are available.</p>
+        {% endif %}
+    </div>
+
+    {% if not user.is_authenticated %}
+        <div style="margin-top: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 5px;">
+            <p style="margin: 0;">Please <a href="{% url 'polls:user_login' %}">login</a> to vote on questions.</p>
+        </div>
+    {% endif %}
+{% endblock %}

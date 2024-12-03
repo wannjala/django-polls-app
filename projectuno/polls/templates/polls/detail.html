@@ -1,0 +1,54 @@
+{% extends "polls/base.html" %}
+
+{% block title %}{{ question.question_text }}{% endblock %}
+
+{% block content %}
+    <h1>{{ question.question_text }}</h1>
+
+    {% if error_message %}
+        <p class="error">{{ error_message }}</p>
+    {% endif %}
+
+    {% if user.is_authenticated %}
+        {% if has_voted %}
+            <div style="margin: 20px 0; padding: 15px; background-color: #e8f5e9; border-radius: 5px;">
+                <p style="margin: 0;">You have already voted on this question.</p>
+            </div>
+            <div style="margin: 20px 0;">
+                <h2>Choices:</h2>
+                <ul>
+                    {% for choice in question.choice_set.all %}
+                        <li style="margin: 10px 0;">{{ choice.choice_text }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% else %}
+            <form action="{% url 'polls:vote' question.id %}" method="post">
+                {% csrf_token %}
+                {% for choice in question.choice_set.all %}
+                    <div style="margin: 10px 0;">
+                        <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+                        <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label>
+                    </div>
+                {% endfor %}
+                <input type="submit" value="Vote" class="button">
+            </form>
+        {% endif %}
+    {% else %}
+        <div style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-radius: 5px;">
+            <p style="margin: 0;">Please <a href="{% url 'polls:user_login' %}?next={{ request.path }}">login</a> to vote on this question.</p>
+        </div>
+        <div style="margin: 20px 0;">
+            <h2>Choices:</h2>
+            <ul>
+                {% for choice in question.choice_set.all %}
+                    <li style="margin: 10px 0;">{{ choice.choice_text }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+    
+    <p style="margin-top: 20px;">
+        <a href="{% url 'polls:index' %}">&larr; Back to questions</a>
+    </p>
+{% endblock %}

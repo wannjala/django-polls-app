@@ -1,0 +1,34 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+
+{% block extrastyle %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% static 'admin/css/custom_admin.css' %}">
+{% endblock %}
+
+{% block coltype %}colMS{% endblock %}
+
+{% block bodyclass %}{{ block.super }} dashboard{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block content %}
+<div id="content-main">
+    <div class="admin-welcome">
+        <h2>Welcome to the Polls Administration</h2>
+        <p>
+            This is your control center for managing the polls application. Here you can:
+        </p>
+        <ul>
+            <li>Create and edit poll questions</li>
+            <li>Manage answer choices</li>
+            <li>View voting results</li>
+            <li>Monitor user activity</li>
+        </ul>
+        <p>
+            Use the navigation menu below to access different sections of the admin interface.
+        </p>
+    </div>
+{% endblock %}
+    
+

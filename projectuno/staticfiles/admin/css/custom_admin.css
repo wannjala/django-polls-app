@@ -1,0 +1,149 @@
+Custom Admin Styles
+:root {
+    --primary-color: #417690;
+    --secondary-color: #79aec8;
+    --accent-color: #f5dd5d;
+    --error-color: #ba2121;
+    --text-color: #333;
+    --light-bg: #fff;
+}
+
+/* Login Form Styles */
+.login #header {
+    height: auto;
+    padding: 15px 16px;
+    justify-content: center;
+    background: var(--primary-color);
+}
+
+.login #header h1 {
+    font-size: 1.25rem;
+    margin: 0;
+    color: white;
+}
+
+.login #container {
+    background: var(--dark-bg);
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    width: 28em;
+    min-width: 300px;
+    margin: 100px auto;
+    padding: 26px 24px 46px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: auto;
+}
+
+.login #content {
+    padding: 20px 0;
+}
+
+.login .form-row {
+    padding: 4px 0;
+    float: left;
+    width: 100%;
+}
+
+.login .form-row label {
+    padding-right: 0.5em;
+    line-height: 2em;
+    font-size: 1em;
+    clear: both;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+.login .form-row input {
+    clear: both;
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fdfdfd;
+    color: var(--text-color);
+}
+
+.login .submit-row {
+    clear: both;
+    padding: 20px 0 0 0;
+    margin: 0;
+    text-align: center;
+}
+
+.login .submit-row input {
+    background: var(--primary-color);
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    padding: 10px 15px;
+    font-size: 14px;
+    transition: background 0.15s;
+    width: auto;
+}
+
+.login .submit-row input:hover {
+    background: var(--secondary-color);
+}
+
+.login .errornote {
+    background: var(--error-color);
+    border-radius: 4px;
+    color: white;
+    display: block;
+    margin: 0 0 10px 0;
+    padding: 10px 12px;
+    font-size: 14px;
+}
+
+/* Admin Welcome Section */
+.admin-welcome {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: var(--light-bg);
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.admin-welcome h2 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.admin-welcome p {
+    color: var(--text-color);
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.admin-welcome ul {
+    color: var(--text-color);
+    line-height: 1.5;
+    margin-left: 20px;
+    margin-bottom: 15px;
+    list-style-type: disc;
+}
+
+.admin-welcome li {
+    margin-bottom: 5px;
+}
+
+.admin-welcome p:last-child {
+    margin-bottom: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .login #container {
+        margin: 40px 20px;
+        width: auto;
+    }
+    
+    .admin-welcome {
+        margin: 20px;
+        padding: 15px;
+    }
+}

@@ -1,0 +1,321 @@
+/* Custom Admin Styles */
+:root {
+    --primary-color: #417690;
+    --secondary-color: #79aec8;
+    --accent-color: #f5dd5d;
+    --error-color: #ba2121;
+    --text-color: #333;
+    --bg-dark: #1f1f1f;
+    --bg-light: #fff;
+    --link-color: #79aec8;
+}
+
+/* Main Layout */
+body {
+    background: var(--bg-dark);
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1400px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+#content {
+    flex: 1;
+    max-width: 900px;
+}
+
+/* Header Styles */
+#header {
+    background: var(--primary-color);
+    color: var(--bg-light);
+    padding: 15px 20px;
+}
+
+#branding h1 {
+    margin: 0;
+    font-weight: 300;
+    font-size: 24px;
+    color: var(--bg-light);
+}
+
+/* Welcome Section */
+.admin-welcome {
+    background: var(--bg-light);
+    padding: 25px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.admin-welcome h2 {
+    color: var(--primary-color);
+    margin: 0 0 15px 0;
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.admin-welcome p {
+    color: var(--text-color);
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.admin-welcome ul {
+    margin: 0 0 15px 20px;
+    padding: 0;
+}
+
+.admin-welcome li {
+    color: var(--text-color);
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+/* Module Styles */
+.module {
+    background: var(--bg-light);
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.module h2 {
+    background: var(--primary-color);
+    color: var(--bg-light);
+    padding: 12px 15px;
+    margin: 0;
+    font-size: 16px;
+    font-weight: 300;
+    border-radius: 4px 4px 0 0;
+}
+
+.module table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--text-color);
+}
+
+.module th,
+.module td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.module table th {
+    width: 100%;
+}
+
+.module table td {
+    white-space: nowrap;
+}
+
+/* Action Links */
+.addlink {
+    color: #70bf2b !important;
+}
+
+.changelink {
+    color: #ffc107 !important;
+}
+
+.deletelink {
+    color: #dc3545 !important;
+}
+
+/* Recent Actions */
+.actionlist {
+    list-style-type: none;
+    padding: 0;
+}
+
+.actionlist li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 13px;
+}
+
+.actionlist li:last-child {
+    border-bottom: none;
+}
+
+.mini {
+    font-size: 11px;
+    color: #666;
+}
+
+.quiet {
+    color: #999;
+}
+
+/* Sidebar Styles */
+#content-related {
+    width: 300px;
+    background: var(--bg-light);
+    border-radius: 4px;
+    padding: 0;
+    margin: 0;
+}
+
+#content-related .module h2 {
+    background: var(--primary-color);
+    color: var(--bg-light);
+    padding: 12px 15px;
+    margin: 0;
+    font-size: 16px;
+    font-weight: 300;
+    border-radius: 4px 4px 0 0;
+}
+
+#content-related .module {
+    margin-bottom: 0;
+}
+
+#content-related .actionlist {
+    padding: 15px;
+    margin: 0;
+    list-style-type: none;
+}
+
+#content-related .actionlist li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+#content-related .actionlist li:last-child {
+    border-bottom: none;
+}
+
+/* Links */
+a:link, a:visited {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    #container {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    #content {
+        max-width: 100%;
+    }
+
+    #content-related {
+        width: 100%;
+        margin-top: 20px;
+    }
+}
+
+/* Login Form Styles */
+.login #header {
+    height: auto;
+    padding: 15px 16px;
+    justify-content: center;
+    background: var(--primary-color);
+}
+
+.login #header h1 {
+    font-size: 1.25rem;
+    margin: 0;
+    color: white;
+}
+
+.login #container {
+    background: var(--bg-dark);
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    width: 28em;
+    min-width: 300px;
+    margin: 100px auto;
+    padding: 26px 24px 46px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: auto;
+}
+
+.login #content {
+    padding: 20px 0;
+}
+
+.login .form-row {
+    padding: 4px 0;
+    float: left;
+    width: 100%;
+}
+
+.login .form-row label {
+    padding-right: 0.5em;
+    line-height: 2em;
+    font-size: 1em;
+    clear: both;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+.login .form-row input {
+    clear: both;
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fdfdfd;
+    color: var(--text-color);
+}
+
+.login .submit-row {
+    clear: both;
+    padding: 20px 0 0 0;
+    margin: 0;
+    text-align: center;
+}
+
+.login .submit-row input {
+    background: var(--primary-color);
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    padding: 10px 15px;
+    font-size: 14px;
+    transition: background 0.15s;
+    width: auto;
+}
+
+.login .submit-row input:hover {
+    background: var(--secondary-color);
+}
+
+.login .errornote {
+    background: var(--error-color);
+    border-radius: 4px;
+    color: white;
+    display: block;
+    margin: 0 0 10px 0;
+    padding: 10px 12px;
+    font-size: 14px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .login #container {
+        margin: 40px 20px;
+        width: auto;
+    }
+    
+    .admin-welcome {
+        margin: 20px;
+        padding: 15px;
+    }
+}

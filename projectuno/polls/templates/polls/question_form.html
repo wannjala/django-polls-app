@@ -1,0 +1,34 @@
+{% extends "polls/base.html" %}
+
+{% block title %}{% if form.instance.pk %}Edit Question{% else %}New Question{% endif %}{% endblock %}
+
+{% block content %}
+    <h1>{% if form.instance.pk %}Edit Question{% else %}New Question{% endif %}</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        
+        <div style="margin-bottom: 20px;">
+            {{ form.as_p }}
+        </div>
+
+        <fieldset style="border: 1px solid #ddd; padding: 20px; margin-bottom: 20px; border-radius: 5px;">
+            <legend>Choices</legend>
+            {{ choices.management_form }}
+            {% for choice_form in choices.forms %}
+                <div style="margin-bottom: 15px;">
+                    {{ choice_form.as_p }}
+                    {% if choice_form.instance.pk %}
+                        {{ choice_form.DELETE }}
+                        <label for="{{ choice_form.DELETE.id_for_label }}">Delete this choice?</label>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </fieldset>
+
+        <div style="margin-top: 20px;">
+            <input type="submit" value="Save Question" class="button">
+            <a href="{% url 'polls:index' %}" style="margin-left: 10px;">Cancel</a>
+        </div>
+    </form>
+{% endblock %}
